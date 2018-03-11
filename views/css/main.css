@@ -1,0 +1,121 @@
+header
+{
+    width:100%;
+    height: 100px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #d9d9db;
+    position: relative;
+
+}
+header div
+{
+    float:left;
+    height:100%;
+}
+
+header .title
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+header .logo img
+{
+    height:100%;
+}
+
+header .search
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+header .search form .search_field
+{
+    border:none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+header .search form .search_button
+{
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-image: url('/views/images/search_button.svg');
+    color: transparent;
+    width: 44px;
+    height: 44px;
+    background-size: cover;
+}
+
+header .buttons
+{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+header .buttons span
+{
+    color: #007bff;
+}
+
+.login-form
+{
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+    width: 190px;
+    display: none;
+}
+
+.login-form form
+{
+    overflow: hidden;
+}
+
+.login-form h5
+{
+    text-align: center;
+}
+
+.reg_form
+{
+    padding: 20px;
+}
+
+.container h1
+{
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media (min-width: 576px) {
+    header {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    header {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    header {
+        max-width: 1140px;
+    }
+}
