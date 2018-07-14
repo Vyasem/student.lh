@@ -13,7 +13,7 @@
         <div class="form-group name_group">
             <label for="form_name">Имя</label>
             <input type="text" name="EDIT[NAME]" value="<?=$data['item_user'][0]['name']?>" class="form-control <?=$name_group['STATUS']?> " id="form_name" placeholder="Введите имя">
-            <div class="invalid-feedback"><?=$name_group['TEXT']?></div>
+            <div class="invald-feedback"><?=$name_group['TEXT']?></div>
         </div>
         <div class="form-group surname_group">
             <label for="form_surname">Фамилия</label>

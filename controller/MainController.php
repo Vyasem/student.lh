@@ -15,9 +15,10 @@ class MainController
     private $requestEdit;
     private $itemUser;
     private $requestSearch;
+    private $smarty;
 
 
-    public function __construct($dbObejct, $config)
+    public function __construct($dbObejct, $config, $template)
     {
         $this->db = $dbObejct;
         $this->config = $config;
@@ -26,10 +27,12 @@ class MainController
         $this->requestAdd = $_POST['ADD'];
         $this->requestEdit = $_POST['EDIT'];
         $this->requestSearch = $_GET['query'];
+        $this->smarty = $template;
     }
 
     public function pageDefine()
     {
+        //var_dump($this->smarty);
         //определяем имя страницы
         $page = $this->pageName();
         //Заголовок страницы и браузера. Находиться в файле конфигурации
@@ -69,7 +72,17 @@ class MainController
         //Поля формы
         $data['fields'] = $this->config['formFields'];
         //Поделючение шаблона сайта и страницы
-        echo $this->includeTemplate("views/pages/$page.php","views/tamplate/{$this->config['template']}.php", $title, $header, $data, $checkUser);
+        $tpl_list = $this->smarty->getTemplateDir();
+        $this->smarty->assign('data', $data);
+        $pageContent = $this->smarty->fetch($tpl_list['pages'].$page.'.tpl');
+        $this->smarty->assign(array(
+            'title' => $title,
+            'header' => $header,
+            'content' => $pageContent,
+            'checkUser' => $checkUser,
+        ));
+        $this->smarty->display($tpl_list['template'].$this->config['template'].'.tpl');
+        //echo $this->includeTemplate("views/pages/$page.php","views/tamplates/{$this->config['template']}.php", $title, $header, $data, $checkUser);
     }
 
     private function pageName()
